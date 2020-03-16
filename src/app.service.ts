@@ -3,7 +3,8 @@ import * as ogs from 'open-graph-scraper';
 
 @Injectable()
 export class AppService {
-  async getOGP(url: string): Promise<object> {
+  async getOGP(urlBase: string): Promise<object> {
+    const url = encodeURI(urlBase);
     const result = await ogs({ url });
     return result.data;
   }
